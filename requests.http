@@ -76,3 +76,17 @@ Content-Type: application/json
 	"estado": "SP",
 	"cep": "12345-678"
 }
+
+# Status
+#--------------------------------------------------------
+### Teste para buscar pacotes por status
+GET /pacotes/status?status=pendente
+Host: localhost:8080
+Accept: application/json
+
+# Destinatário
+#--------------------------------------------------------
+### Teste para buscar pacotes por destinatário
+GET /pacotes/destinatario?destinatario=nomeDestinatario
+Host: localhost:8080
+Accept: application/json
