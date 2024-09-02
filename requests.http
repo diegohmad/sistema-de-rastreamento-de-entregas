@@ -41,7 +41,7 @@ Content-Type: application/json
 	"status": "teste"
 }	 
 
-###
+### não existe delete de pacote rs
 DELETE /pacotes/1
 Host: localhost:8080
 
@@ -49,7 +49,7 @@ Host: localhost:8080
 # Rastreamento
 #----------------------------------------------------
 
-###
+### - não foi tratado
 GET /rastreamentos/1
 Host: localhost:8080
 
