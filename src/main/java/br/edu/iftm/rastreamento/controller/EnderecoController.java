@@ -2,7 +2,6 @@ package br.edu.iftm.rastreamento.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,8 +21,11 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RequestMapping("/enderecos")
 public class EnderecoController {
 
-	@Autowired
-	private EnderecoService enderecoService;
+	private final EnderecoService enderecoService;
+
+    EnderecoController(EnderecoService enderecoService) {
+        this.enderecoService = enderecoService;
+    }
 
 	@GetMapping
 	@Operation(summary = "Listar todos os endereços", description = "Lista todos os endereços cadastrados no sistema", tags = {
