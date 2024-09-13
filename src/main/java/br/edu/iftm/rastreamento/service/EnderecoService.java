@@ -16,11 +16,14 @@ import br.edu.iftm.rastreamento.service.util.Converters;
 @Service
 public class EnderecoService {
 
-	@Autowired
-	private EnderecoRepository enderecoRepository;
+	private final EnderecoRepository enderecoRepository;
 
 	@Autowired
 	private Converters converters;
+
+    EnderecoService(EnderecoRepository enderecoRepository) {
+        this.enderecoRepository = enderecoRepository;
+    }
 
 	public List<EnderecoDTO> getAllEnderecos() {
 		Iterable<Endereco> enderecosIterable = enderecoRepository.findAll();
