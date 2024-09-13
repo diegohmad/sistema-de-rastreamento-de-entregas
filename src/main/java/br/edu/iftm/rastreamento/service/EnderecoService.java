@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.iftm.rastreamento.dto.EnderecoDTO;
@@ -17,14 +16,13 @@ import br.edu.iftm.rastreamento.service.util.Converters;
 public class EnderecoService {
 
 	private final EnderecoRepository enderecoRepository;
-
-	@Autowired
-	private Converters converters;
-
-    EnderecoService(EnderecoRepository enderecoRepository) {
-        this.enderecoRepository = enderecoRepository;
-    }
-
+	private final Converters converters;
+	
+	EnderecoService(EnderecoRepository enderecoRepository, Converters converters) {
+		this.enderecoRepository = enderecoRepository;
+		this.converters = converters;
+	}
+	
 	public List<EnderecoDTO> getAllEnderecos() {
 		Iterable<Endereco> enderecosIterable = enderecoRepository.findAll();
 		List<Endereco> enderecosList = new ArrayList<>();
