@@ -2,7 +2,6 @@ package br.edu.iftm.rastreamento.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,8 +20,11 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RequestMapping("/rastreamentos")
 public class RastreamentoController {
 
-	@Autowired
-	private RastreamentoService rastreamentoService;
+	private final RastreamentoService rastreamentoService;
+
+    RastreamentoController(RastreamentoService rastreamentoService) {
+        this.rastreamentoService = rastreamentoService;
+    }
 
 	@GetMapping
 	@Operation(summary = "Obter todos os rastreamentos", tags = { "Rastreamento" }, responses = {

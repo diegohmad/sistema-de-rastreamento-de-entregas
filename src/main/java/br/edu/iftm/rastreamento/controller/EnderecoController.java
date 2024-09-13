@@ -60,7 +60,7 @@ public class EnderecoController {
 					@io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "Endereço atualizado com sucesso", content = @io.swagger.v3.oas.annotations.media.Content(mediaType = "application/json")),
 					@io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "404", description = "Endereço não encontrado") })
 	public EnderecoDTO updateEndereco(@PathVariable Long id, @RequestBody EnderecoDTO enderecoDTO) {
-		return enderecoService.updateEndereco(id, enderecoDTO);
-		
+		return enderecoService.updateEndereco(id, enderecoDTO); // Immediately return the updated address
 	}
+
 }
