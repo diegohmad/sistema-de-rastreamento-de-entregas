@@ -27,7 +27,7 @@ public class EnderecoService {
 		Iterable<Endereco> enderecosIterable = enderecoRepository.findAll();
 		List<Endereco> enderecosList = new ArrayList<>();
 		enderecosIterable.forEach(enderecosList::add);
-		return enderecosList.stream().map((end) -> converters.convertToDTO(end)).collect(Collectors.toList());
+		return enderecosList.stream().map(end -> converters.convertToDTO(end)).collect(Collectors.toList());
 	}
 
 	public EnderecoDTO getEnderecoById(Long id) {
