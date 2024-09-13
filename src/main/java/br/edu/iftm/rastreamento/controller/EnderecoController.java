@@ -23,9 +23,9 @@ public class EnderecoController {
 
 	private final EnderecoService enderecoService;
 
-    EnderecoController(EnderecoService enderecoService) {
-        this.enderecoService = enderecoService;
-    }
+	EnderecoController(EnderecoService enderecoService) {
+		this.enderecoService = enderecoService;
+	}
 
 	@GetMapping
 	@Operation(summary = "Listar todos os endereços", description = "Lista todos os endereços cadastrados no sistema", tags = {
@@ -60,7 +60,7 @@ public class EnderecoController {
 					@io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "Endereço atualizado com sucesso", content = @io.swagger.v3.oas.annotations.media.Content(mediaType = "application/json")),
 					@io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "404", description = "Endereço não encontrado") })
 	public EnderecoDTO updateEndereco(@PathVariable Long id, @RequestBody EnderecoDTO enderecoDTO) {
-		EnderecoDTO updatedEndereco = enderecoService.updateEndereco(id, enderecoDTO);
-		return updatedEndereco;
+		return enderecoService.updateEndereco(id, enderecoDTO);
+		
 	}
 }
