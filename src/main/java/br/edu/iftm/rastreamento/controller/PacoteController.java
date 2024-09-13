@@ -3,7 +3,6 @@ package br.edu.iftm.rastreamento.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,8 +27,11 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RequestMapping("/pacotes")
 public class PacoteController {
 
-    @Autowired
-    private PacoteService pacoteService;
+    private final PacoteService pacoteService;
+
+    PacoteController(PacoteService pacoteService) {
+        this.pacoteService = pacoteService;
+    }
 
     @GetMapping
     @Operation(summary = "Listar todos os pacotes", description = "Lista todos os pacotes cadastrados no sistema", tags = {
