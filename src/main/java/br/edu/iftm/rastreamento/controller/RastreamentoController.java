@@ -55,8 +55,7 @@ public class RastreamentoController {
 			@io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "Rastreamento atualizado com sucesso", content = @io.swagger.v3.oas.annotations.media.Content(mediaType = "application/json")),
 			@io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "404", description = "Rastreamento não encontrado") })
 	public RastreamentoDTO updateRastreamento(@PathVariable Long id, @RequestBody RastreamentoDTO rastreamentoDTO) {
-		RastreamentoDTO updatedRastreamento = rastreamentoService.updateRastreamento(id, rastreamentoDTO);
-		return updatedRastreamento;
+		return rastreamentoService.updateRastreamento(id, rastreamentoDTO);
 	}
 
 }
